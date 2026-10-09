@@ -3,3 +3,5 @@ numpy
 rdkit
 scikit-learn
 xgboost
+joblib
+streamlit
