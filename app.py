@@ -1,6 +1,6 @@
 """
 Solubility predictor (web app)
-------------------------------
+-----------------------------
 Run with:  streamlit run app.py
 Reuses the model and helpers from predict_solubility.py.
 """
