@@ -87,10 +87,24 @@ header[data-testid="stHeader"] { background: transparent; }
 
 .stApp label, .stApp p, .stApp [data-testid="stCaptionContainer"] { color: #e6f3ff; }
 
-div[data-baseweb="input"], div[data-baseweb="base-input"] {
-    background: rgba(255, 255, 255, 0.95) !important; border-radius: 10px !important;
+/* Make the entire input field white */
+.stApp [data-baseweb="input"] {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
 }
-.stApp input { color: #0a2540 !important; -webkit-text-fill-color: #0a2540 !important; }
+
+/* Force the input text to be visible */
+.stApp [data-baseweb="input"] input {
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    opacity: 1 !important;
+    background-color: transparent !important;
+}
+
+/* Make the cursor visible */
+.stApp [data-baseweb="input"] input:focus {
+    caret-color: #000000 !important;
+}
 
 .stButton > button {
     background: linear-gradient(90deg, #00c6ff, #7b61ff); color: white; border: none;
