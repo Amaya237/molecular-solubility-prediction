@@ -157,7 +157,7 @@ if st.button("Predict") and smiles:
             Draw.MolToImage(
             Chem.MolFromSmiles(smiles),
             size=(300, 300),
-            bgColor=(0.90, 0.96, 0.92)
+            bgColor=(0.88, 0.93, 0.98)
                             )
                 )
         if logs >= cutoff:
