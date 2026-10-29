@@ -10,7 +10,7 @@ from urllib.parse import quote
 import numpy as np
 import streamlit as st
 from rdkit import Chem
-from rdkit.Chem import Draw
+from rdkit.Chem.Draw import rdMolDraw2D
 
 from predict_solubility import (
     SIMILARITY_WARN, fingerprint, load, nearest_similarity,
@@ -153,13 +153,15 @@ if st.button("Predict") and smiles:
         logs = float(model.predict(x.reshape(1, -1))[0])
         sim = nearest_similarity(x, X)
 
-        st.image(
-            Draw.MolToImage(
-            Chem.MolFromSmiles(smiles),
-            size=(300, 300),
-            bgColor=(0.88, 0.93, 0.98)
-                            )
-                )
+        mol = Chem.MolFromSmiles(smiles)
+
+            drawer = rdMolDraw2D.MolDraw2DCairo(300, 300)
+            drawer.drawOptions().setBackgroundColour((0.88, 0.93, 0.98))
+
+            drawer.DrawMolecule(mol)
+            drawer.FinishDrawing()
+
+st.image(drawer.GetDrawingText())
         if logs >= cutoff:
             st.success(f"Soluble (logS = {logs:.2f})")
         else:
