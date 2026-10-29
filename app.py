@@ -155,11 +155,11 @@ if st.button("Predict") and smiles:
 
         mol = Chem.MolFromSmiles(smiles)
 
-            drawer = rdMolDraw2D.MolDraw2DCairo(300, 300)
-            drawer.drawOptions().setBackgroundColour((0.88, 0.93, 0.98))
+        drawer = rdMolDraw2D.MolDraw2DCairo(300, 300)
+        drawer.drawOptions().setBackgroundColour((0.88, 0.93, 0.98))
 
-            drawer.DrawMolecule(mol)
-            drawer.FinishDrawing()
+        drawer.DrawMolecule(mol)
+        drawer.FinishDrawing()
 
 st.image(drawer.GetDrawingText())
         if logs >= cutoff:
