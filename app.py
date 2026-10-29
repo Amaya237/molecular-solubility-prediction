@@ -153,7 +153,13 @@ if st.button("Predict") and smiles:
         logs = float(model.predict(x.reshape(1, -1))[0])
         sim = nearest_similarity(x, X)
 
-        st.image(Draw.MolToImage(Chem.MolFromSmiles(smiles), size=(300, 300)))
+        st.image(
+            Draw.MolToImage(
+            Chem.MolFromSmiles(smiles),
+            size=(300, 300),
+            bgColor=(0.90, 0.96, 0.92)
+                            )
+                )
         if logs >= cutoff:
             st.success(f"Soluble (logS = {logs:.2f})")
         else:
