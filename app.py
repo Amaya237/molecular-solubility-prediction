@@ -234,7 +234,7 @@ if st.button("Predict") and smiles:
 
         drawer = rdMolDraw2D.MolDraw2DCairo(300, 300)
         options = drawer.drawOptions()
-        options.setBackgroundColour((0.059, 0.09, 0.165))
+        options.setBackgroundColour((1, 1, 1, 0))
 
         drawer.DrawMolecule(mol)
         drawer.FinishDrawing()
